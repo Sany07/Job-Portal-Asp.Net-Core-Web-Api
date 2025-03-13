@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitHUBPC\\Job-Portal-Asp.Net-Core-Web-Api\\JobPortal\\JobPortal.csproj": {}
+    "D:\\GitHUBPC\\Job-Portal-Asp.Net-Core-Web-Api\\JobPortal.csproj": {}
   },
   "projects": {
-    "D:\\GitHUBPC\\Job-Portal-Asp.Net-Core-Web-Api\\JobPortal\\JobPortal.csproj": {
+    "D:\\GitHUBPC\\Job-Portal-Asp.Net-Core-Web-Api\\JobPortal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHUBPC\\Job-Portal-Asp.Net-Core-Web-Api\\JobPortal\\JobPortal.csproj",
+        "projectUniqueName": "D:\\GitHUBPC\\Job-Portal-Asp.Net-Core-Web-Api\\JobPortal.csproj",
         "projectName": "JobPortal",
-        "projectPath": "D:\\GitHUBPC\\Job-Portal-Asp.Net-Core-Web-Api\\JobPortal\\JobPortal.csproj",
+        "projectPath": "D:\\GitHUBPC\\Job-Portal-Asp.Net-Core-Web-Api\\JobPortal.csproj",
         "packagesPath": "C:\\Users\\SANY\\.nuget\\packages\\",
-        "outputPath": "D:\\GitHUBPC\\Job-Portal-Asp.Net-Core-Web-Api\\JobPortal\\obj\\",
+        "outputPath": "D:\\GitHUBPC\\Job-Portal-Asp.Net-Core-Web-Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
