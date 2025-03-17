@@ -135,3 +135,15 @@ D:\GitHUBPC\Job-Portal-Asp.Net-Core-Web-Api\bin\Debug\net9.0\FluentValidation.De
 D:\GitHUBPC\Job-Portal-Asp.Net-Core-Web-Api\bin\Debug\net9.0\MediatR.dll
 D:\GitHUBPC\Job-Portal-Asp.Net-Core-Web-Api\bin\Debug\net9.0\MediatR.Contracts.dll
 D:\GitHUBPC\Job-Portal-Asp.Net-Core-Web-Api\bin\Debug\net9.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+D:\GitHUBPC\Job-Portal-Asp.Net-Core-Web-Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\GitHUBPC\Job-Portal-Asp.Net-Core-Web-Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\GitHUBPC\Job-Portal-Asp.Net-Core-Web-Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\GitHUBPC\Job-Portal-Asp.Net-Core-Web-Api\bin\Debug\net9.0\BCrypt.Net-Next.dll
+D:\GitHUBPC\Job-Portal-Asp.Net-Core-Web-Api\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\GitHUBPC\Job-Portal-Asp.Net-Core-Web-Api\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+D:\GitHUBPC\Job-Portal-Asp.Net-Core-Web-Api\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\GitHUBPC\Job-Portal-Asp.Net-Core-Web-Api\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+D:\GitHUBPC\Job-Portal-Asp.Net-Core-Web-Api\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+D:\GitHUBPC\Job-Portal-Asp.Net-Core-Web-Api\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\GitHUBPC\Job-Portal-Asp.Net-Core-Web-Api\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+D:\GitHUBPC\Job-Portal-Asp.Net-Core-Web-Api\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll

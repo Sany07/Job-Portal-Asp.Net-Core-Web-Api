@@ -1,21 +1,60 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using JobPortal.Data;
 using JobPortal.Services;
+using JobPortal.Config;
 using System.Reflection;
-
-
+using JobPortal.CQRS.Mapping;
+using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnet/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 // Add DbContext with SQLite
-builder.Services.AddDbContext<JobPortal.Data.JobPortalDbContext>(options =>
+builder.Services.AddDbContext<JobPortalDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Configure JWT settings
+builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
+var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>();
 
+// Add JWT Authentication
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.RequireHttpsMetadata = false; // Set to true in production
+    options.SaveToken = true;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtSettings?.Secret ?? "defaultsecret")),
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidIssuer = jwtSettings?.Issuer,
+        ValidAudience = jwtSettings?.Audience,
+        ValidateLifetime = true,
+        ClockSkew = TimeSpan.Zero
+    };
+});
+
+// Register Token Service
+builder.Services.AddScoped<ITokenService, TokenService>();
+
+// Register AutoMapper
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+// Register MediatR without validation behaviors - using correct syntax for MediatR 11.1.0
+builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 
 // Add controllers
 builder.Services.AddControllers();
@@ -25,17 +64,15 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    // Map OpenAPI endpoint
-    app.MapOpenApi();
-    
-    // Don't require HTTPS in development
-    app.UseHttpsRedirection();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
-else
-{
-    // In production, enforce HTTPS
-    app.UseHttpsRedirection();
-}
+
+app.UseHttpsRedirection();
+
+// Add authentication middleware
+app.UseAuthentication();
+app.UseAuthorization();
 
 // Create database if it doesn't exist
 using (var scope = app.Services.CreateScope())
@@ -54,12 +91,6 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.MapControllers();
-
-app.MapGet("/", () =>
-{
-    return "Job Portal";
-})
-.WithName("JobpPortal");
 
 app.Run();
 
