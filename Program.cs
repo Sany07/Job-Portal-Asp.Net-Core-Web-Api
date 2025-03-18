@@ -8,6 +8,8 @@ using JobPortal.Config;
 using System.Reflection;
 using JobPortal.CQRS.Mapping;
 using MediatR;
+using FluentValidation;
+using JobPortal.CQRS.Common.Behaviors;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -53,8 +55,14 @@ builder.Services.AddScoped<ITokenService, TokenService>();
 // Register AutoMapper
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
-// Register MediatR without validation behaviors - using correct syntax for MediatR 11.1.0
+// Register MediatR
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
+
+// Register FluentValidation
+builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+
+// Register ValidationBehavior pipeline for MediatR
+builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
 // Add controllers
 builder.Services.AddControllers();

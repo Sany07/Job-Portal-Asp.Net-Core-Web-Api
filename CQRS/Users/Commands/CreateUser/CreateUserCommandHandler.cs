@@ -10,7 +10,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace JobPortal.CQRS.Users.Commands.CreateUser
 {
-
     public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Result<int>>
     {
         private readonly JobPortalDbContext _dbContext;
@@ -26,30 +25,6 @@ namespace JobPortal.CQRS.Users.Commands.CreateUser
         {
             try
             {
-                // Validate that passwords match
-                if (request.UserDto.Password != request.UserDto.ConfirmPassword)
-                {
-                    return Result<int>.Failure("Password and confirmation password do not match");
-                }
-
-                // Check if email is already registered
-                var emailExists = await _dbContext.Users
-                    .AnyAsync(u => u.Email == request.UserDto.Email, cancellationToken);
-                
-                if (emailExists)
-                {
-                    return Result<int>.Failure("Email is already registered");
-                }
-
-                // Check if username is already taken
-                var usernameExists = await _dbContext.Users
-                    .AnyAsync(u => u.Username == request.UserDto.Username, cancellationToken);
-                
-                if (usernameExists)
-                {
-                    return Result<int>.Failure("Username is already taken");
-                }
-
                 // Map DTO to domain entity
                 var user = _mapper.Map<User>(request.UserDto);
 
