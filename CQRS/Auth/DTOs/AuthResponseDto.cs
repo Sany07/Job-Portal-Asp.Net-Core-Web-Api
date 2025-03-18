@@ -2,9 +2,6 @@ using System;
 
 namespace JobPortal.CQRS.Auth.DTOs
 {
-    /// <summary>
-    /// Data Transfer Object for authentication response containing JWT token
-    /// </summary>
     public class AuthResponseDto
     {
         public int UserId { get; set; }
