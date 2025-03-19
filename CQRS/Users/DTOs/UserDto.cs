@@ -1,5 +1,5 @@
 using System;
-using JobPortal.Models;
+using JobPortal.Enums;
 
 namespace JobPortal.CQRS.Users.DTOs
 {
@@ -15,6 +15,7 @@ namespace JobPortal.CQRS.Users.DTOs
         public Gender Gender { get; set; }
         public string Address { get; set; }
         public DateTime CreatedAt { get; set; }
+        public UserRole Role { get; set; }
         
         // Computed property for displaying the full name
         public string FullName { get; set; }

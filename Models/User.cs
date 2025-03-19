@@ -2,15 +2,10 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
+using JobPortal.Enums;
 
 namespace JobPortal.Models
 {
-    public enum Gender
-    {
-        Male,
-        Female,
-    }
-
     [Index(nameof(Email), IsUnique = true)]
     [Index(nameof(Username), IsUnique = true)]
     public class User
@@ -38,6 +33,8 @@ namespace JobPortal.Models
         public Gender Gender { get; set; }
         
         public string Address { get; set; }
+
+        public UserRole Role { get; set; } = UserRole.Employee; // Default role
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
