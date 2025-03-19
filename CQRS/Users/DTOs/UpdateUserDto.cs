@@ -1,5 +1,5 @@
 using System;
-using JobPortal.Models;
+using JobPortal.Enums;
 
 namespace JobPortal.CQRS.Users.DTOs
 {
@@ -9,7 +9,7 @@ namespace JobPortal.CQRS.Users.DTOs
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
         public DateTime? DateOfBirth { get; set; }
-        public Gender? Gender { get; set; }
+        public Gender Gender { get; set; }
         public string Address { get; set; }
     }
 } 

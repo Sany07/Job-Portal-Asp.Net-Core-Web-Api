@@ -56,11 +56,9 @@ namespace JobPortal.CQRS.Users.Commands.UpdateUser
                     }).WithMessage("User must be at least 18 years old");
             });
             
-            // Gender validation (if provided)
-            When(x => x.UserDto.Gender.HasValue, () => {
-                RuleFor(x => x.UserDto.Gender)
-                    .IsInEnum().WithMessage("Invalid gender selection");
-            });
+            // Gender validation
+            RuleFor(x => x.UserDto.Gender)
+                .IsInEnum().WithMessage("Invalid gender selection");
         }
 
         private async Task<bool> UserExists(int userId, CancellationToken cancellationToken)
