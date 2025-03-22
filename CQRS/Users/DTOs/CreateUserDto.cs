@@ -16,6 +16,6 @@ namespace JobPortal.CQRS.Users.DTOs
         public Gender Gender { get; set; }
         public string Address { get; set; }
         public UserRole Role { get; set; } = UserRole.Employee; // Default role
-        public bool IsActive { get; set; } = true;
+        
     }
 }
