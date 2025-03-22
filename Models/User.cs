@@ -34,7 +34,7 @@ namespace JobPortal.Models
         
         public string Address { get; set; }
 
-        public UserRole Role { get; set; } = UserRole.Employee; // Default role
+        public UserRole Role { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         
