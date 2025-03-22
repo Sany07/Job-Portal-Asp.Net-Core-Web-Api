@@ -37,19 +37,21 @@ namespace JobPortal.Models
         public UserRole Role { get; set; } = UserRole.Employee; // Default role
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        
+        public bool IsActive { get; set; } = true;
 
         // Custom validation method for age verification (if needed)
-        public bool IsValidAge()
-        {
-            if (DateOfBirth.HasValue)
-            {
-                var age = DateTime.Today.Year - DateOfBirth.Value.Year;
-                if (DateOfBirth.Value.Date > DateTime.Today.AddYears(-age))
-                    age--;
+        // public bool IsValidAge()
+        // {
+        //     if (DateOfBirth.HasValue)
+        //     {
+        //         var age = DateTime.Today.Year - DateOfBirth.Value.Year;
+        //         if (DateOfBirth.Value.Date > DateTime.Today.AddYears(-age))
+        //             age--;
                 
-                return age >= 18; // Example: ensuring the user is at least 18 years old
-            }
-            return true; // Not required if no DOB provided
-        }
+        //         return age >= 18; // Example: ensuring the user is at least 18 years old
+        //     }
+        //     return true; // Not required if no DOB provided
+        // }
     }
 } 

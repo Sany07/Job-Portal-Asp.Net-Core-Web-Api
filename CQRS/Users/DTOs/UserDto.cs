@@ -16,6 +16,7 @@ namespace JobPortal.CQRS.Users.DTOs
         public string Address { get; set; }
         public DateTime CreatedAt { get; set; }
         public UserRole Role { get; set; }
+        public bool IsActive { get; set; }
         
         // Computed property for displaying the full name
         public string FullName { get; set; }

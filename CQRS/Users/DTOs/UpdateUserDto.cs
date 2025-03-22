@@ -11,5 +11,6 @@ namespace JobPortal.CQRS.Users.DTOs
         public DateTime? DateOfBirth { get; set; }
         public Gender Gender { get; set; }
         public string Address { get; set; }
+        // public bool IsActive { get; set; }
     }
 } 
