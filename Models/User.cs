@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 using JobPortal.Enums;
+using System.Collections.Generic;
 
 namespace JobPortal.Models
 {
@@ -39,6 +40,9 @@ namespace JobPortal.Models
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         
         public bool IsActive { get; set; } = true;
+
+        // Navigation property for jobs created by this user
+        public virtual ICollection<Job> Jobs { get; set; } = new List<Job>();
 
         // Custom validation method for age verification (if needed)
         // public bool IsValidAge()
