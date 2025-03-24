@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
+using JobPortal.Enums;
 
 namespace JobPortal.Models
 {
@@ -18,7 +19,7 @@ namespace JobPortal.Models
         
         public string Location { get; set; }
         
-        public string JobType { get; set; }
+        public JobType JobType { get; set; }
         
         public string Category { get; set; }
         
@@ -30,7 +31,7 @@ namespace JobPortal.Models
         
         public string Url { get; set; }
         
-        public DateTime LastDate { get; set; }
+        public DateTime LastDate { get; set; } = DateTime.UtcNow.AddDays(30);
         
         public bool IsPublished { get; set; } = false;
         
