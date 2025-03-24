@@ -15,10 +15,10 @@ namespace JobPortal.CQRS.Jobs.DTOs
         public string CompanyName { get; set; }
         public string CompanyDescription { get; set; }
         public string Url { get; set; }
-        public DateTime LastDate { get; set; }
         public bool IsPublished { get; set; }
         public bool IsClosed { get; set; }
         public bool IsActive { get; set; }
+        public DateTime LastDate { get; set; }
         public DateTime Timestamp { get; set; }
         public int UserId { get; set; }
         

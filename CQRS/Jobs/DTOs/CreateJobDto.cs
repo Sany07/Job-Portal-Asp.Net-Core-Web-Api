@@ -10,7 +10,7 @@ namespace JobPortal.CQRS.Jobs.DTOs
         public string Tags { get; set; }
         public string Location { get; set; }
         public JobType JobType { get; set; }
-        public string Category { get; set; }
+        public int CategoryId { get; set; }
         public decimal Salary { get; set; }
         public string CompanyName { get; set; }
         public string CompanyDescription { get; set; }

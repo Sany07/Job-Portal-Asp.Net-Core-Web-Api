@@ -21,7 +21,11 @@ namespace JobPortal.Models
         
         public JobType JobType { get; set; }
         
-        public string Category { get; set; }
+        // Foreign key for Category
+        public int CategoryId { get; set; }
+        
+        [ForeignKey("CategoryId")]
+        public Category Category { get; set; }
         
         public decimal Salary { get; set; }
         
