@@ -28,7 +28,7 @@ namespace JobPortal.Controllers
             // Create user command using existing CQRS command
             var command = new CreateUserCommand(userDto);
             var result = await _mediator.Send(command);
-
+            
             if (result.IsSuccess)
             {
                 // If registration succeeds, auto-login the user
@@ -51,7 +51,6 @@ namespace JobPortal.Controllers
                 return StatusCode(StatusCodes.Status201Created, 
                     new { UserId = result.Value, Message = "Registration successful. Please log in." });
             }
-
             foreach (var error in result.Errors)
             {
                 ModelState.AddModelError(string.Empty, error);
