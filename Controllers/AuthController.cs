@@ -47,7 +47,7 @@ namespace JobPortal.Controllers
                     return CreatedAtAction(nameof(Login), null, loginResult.Value);
                 }
                 
-                // If auto-login fails, return success without token
+                // If auto-login fails, return success without token..
                 return StatusCode(StatusCodes.Status201Created, 
                     new { UserId = result.Value, Message = "Registration successful. Please log in." });
             }
