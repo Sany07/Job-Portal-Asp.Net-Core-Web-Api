@@ -31,7 +31,7 @@ namespace JobPortal.Controllers
             
             if (result.IsSuccess)
             {
-                // If registration succeeds, auto-login the user
+                // If registration succeeds, auto-login the user..
                 var loginDto = new LoginDto
                 {
                     Email = userDto.Email,
@@ -43,7 +43,7 @@ namespace JobPortal.Controllers
                 
                 if (loginResult.IsSuccess)
                 {
-                    // Return auth response with token
+                    // Return auth response with token..
                     return CreatedAtAction(nameof(Login), null, loginResult.Value);
                 }
                 
